@@ -94,6 +94,10 @@ endif::[]
 
 `POST` 요청을 사용해서 새 유저를 만들 수 있다.
 
+=== Links
+Links:
+include::{snippets}/signUp-member/links.adoc[]
+
 //operation::signUp-member[snippets='curl-request,http-request,http-response,request-body,request-fields,request-headers,response-body,response-headers,links']
 === Request
 CURL:
