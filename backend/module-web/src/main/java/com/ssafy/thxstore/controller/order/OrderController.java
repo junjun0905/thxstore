@@ -19,8 +19,6 @@ import java.util.List;
 @CrossOrigin(origins = { "*" }, maxAge = 6000)
 @RequestMapping(value = "/order", produces = MediaTypes.HAL_JSON_VALUE)
 public class OrderController {
-
-
 private final ReservationService reservationService;
 /**
  * 장바구니 생성
