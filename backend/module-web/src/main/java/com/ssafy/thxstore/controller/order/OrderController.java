@@ -23,11 +23,26 @@ private final ReservationService reservationService;
 /**
  * 장바구니 생성
  */
-        @PostMapping
-    public ResponseEntity<String> addCart(@Valid @RequestBody List<CartDto> cartList){
+@PostMapping("/cart")
+public ResponseEntity<String> addCart(@Valid @RequestBody List<CartDto> cartList){
 
-        reservationService.addCart(cartList);
+    reservationService.addCart(cartList);
 
-        return new ResponseEntity<>("생성완료", HttpStatus.OK);
+    return new ResponseEntity<>("생성완료", HttpStatus.OK);
+}
+
+    /**
+     * 장바구니 조회
+     * 1. 사용자의 id 전달 받음 -> cart 테이블에서 user_id로 검색 후 상품 dto +수량 전달
+     */
+
+    @GetMapping("/cart/{memberId}")
+    public ResponseEntity getCart(@PathVariable Long memberId){
+
+        List<CartDto> li = reservationService.getCart(memberId);
+
+        return new ResponseEntity<>(li, HttpStatus.OK);
+//        return ResponseEntity.created(li.getUri()).body(li.getOrderResource());
     }
+
 }
